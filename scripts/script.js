@@ -65,19 +65,40 @@ const typed = new Typed('.multiple-text', {
 })
 /* SMTP EMAIL */
 const form = document.querySelector('form');
-
-function sendEmail(e) {
-    e.preventDefault();
-
+const fullName = document.getElementById('name');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const subject = document.getElementById('subject');
+const message = document.getElementById('message');
+function sendEmail() {
+    const bodyMessage = `Full Name: ${fullName.value}<br> Email: ${email.value}<br> Phone Number: ${phone.value}<br> Message: ${message.value}`;
     Email.send({
         Host : "smtp.elasticemail.com",
-        Username : "username",
-        Password : "password",
-        To : 'them@website.com',
-        From : "you@isp.com",
-        Subject : "This is the subject",
-        Body : "And this is the body"
+        Username : "dafazulfikar8@gmail.com",
+        Password : "4FBD91C0AF0200A0C8B9FEF39CC95C6A4A94",
+        To : 'dafazulfikar8@gmail.com',
+        From : "dafazulfikar8@gmail.com",
+        Subject : subject.value,
+        Body : bodyMessage
     }).then(
-      message => alert(message)
+        message => {
+            if (message == 'OK') {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Message sent successfully!",
+                    icon: "success"
+                });
+            } else {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Message failed to send!",
+                    icon: "error"
+                });
+            }
+        }
     );
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendEmail();
+    });
 }
