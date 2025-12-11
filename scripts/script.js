@@ -57,7 +57,7 @@ ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left'})
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right'})
 /* TYPED JS */
 const typed = new Typed('.multiple-text', {
-    strings: ['Web Developer', 'Cyber Security Student', 'Freelancer', 'Network Engineer', 'Penetration Tester'],
+    strings: ['Web Developer', 'Cyber Security Student', 'CEO,CTO of PT. SAN', 'Security Engineer', 'Penetration Tester'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
